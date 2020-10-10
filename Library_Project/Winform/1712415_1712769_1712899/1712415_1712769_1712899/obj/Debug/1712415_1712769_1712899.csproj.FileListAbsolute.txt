@@ -1,0 +1,35 @@
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csprojAssemblyReference.cache
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.Properties.Resources.resources
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.TrangChu.resources
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csproj.GenerateResource.cache
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csproj.CoreCompileInputs.cache
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.exe.config
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.exe
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.pdb
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.exe
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.pdb
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.NhanVienDangNhap.resources
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.QuanLySach.resources
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.Muon_Tra_Sach.resources
+H:\HK06\Phân Tích Thiết Kế HTTT\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.QuanLyDKThe.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.exe.config
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.exe
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\bin\Debug\1712415_1712769_1712899.pdb
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.Muon_Tra_Sach.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.NhanVienDangNhap.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.Properties.Resources.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.QuanLyDKThe.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.QuanLySach.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.TrangChu.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.exe
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\1712415_1712769_1712899.pdb
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.ThemLSGD.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.ThanhLySach.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.DanhMucThanhLy.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.DanhMucThanhLyDaDuyet.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.DanhSachThanhLy.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.TaoDanhMucThanhLy.resources
+C:\Users\Admin\Documents\DoAnLyThuyetPTTK\Đồ án lí thuyết\Winform\1712415_1712769_1712899\1712415_1712769_1712899\obj\Debug\_1712415_1712769_1712899.TaoSachMoiNhap.resources

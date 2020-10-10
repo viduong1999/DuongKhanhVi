@@ -1,0 +1,30 @@
+﻿use NGHIEPVU
+go
+--TẠO FILEGROUP CHO DATABASE SalesManagement_Index
+alter database NGHIEPVU add filegroup FG2019_QUY1
+alter database NGHIEPVU add filegroup FG2019_QUY2
+alter database NGHIEPVU add filegroup FG2019_QUY3
+alter database NGHIEPVU add filegroup FG2019_QUY4
+--THÊM DATA FILE VÀO MỖI FILE GROUP
+alter database NGHIEPVU add file (NAME=N'FY2019_QUY1', FILENAME = N'D:\DATA\FY2019_QUY1.ndf') TO FILEGROUP FG2019_QUY1
+alter database NGHIEPVU add file (NAME=N'FY2019_QUY2', FILENAME = N'D:\DATA\FY2019_QUY2.ndf') TO FILEGROUP FG2019_QUY2
+alter database NGHIEPVU add file (NAME=N'FY2019_QUY3', FILENAME = N'D:\DATA\FY2019_QUY3.ndf') TO FILEGROUP FG2019_QUY3
+alter database NGHIEPVU add file (NAME=N'FY2019_QUY4', FILENAME = N'D:\DATA\FY2019_QUY4.ndf') TO FILEGROUP FG2019_QUY4
+--tạo hàm phân mảnh
+create partition function PAR_NGAYDAT(DATE)
+as range right for values('2019-04-01','2019-07-01','2019-10-01')
+create partition scheme PAR_scheme
+as partition PAR_NGAYDAT to (FG2019_QUY1,FG2019_QUY2,FG2019_QUY3,FG2019_QUY4)
+-- tạo bảng OrderHeader và phân đoạn cho nó
+CREATE TABLE HOADON
+(
+	MAHD INT PRIMARY KEY,
+	MATK INT,
+	NGAYDAT DATE,
+	MAGG VARCHAR(100),
+	TINHTRANG NVARCHAR(100),
+	HUYDON BIT,
+	PTTT NVARCHAR(100),
+	STK VARCHAR(100),
+	DANHGIA NVARCHAR(100)
+)on PAR_scheme(NGAYDAT)

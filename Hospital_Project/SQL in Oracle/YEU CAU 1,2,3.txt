@@ -1,0 +1,212 @@
+/*=======================================================PHAN HE MOT=======================================================*/
+-- THEM DONG LENH NAY DE FIX LOI TAO USER
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+-- TAO USER ADMIN VOI TOAN QUYEN HE THONG
+CREATE USER ADMIN1 IDENTIFIED BY admin1;
+-- GAN QUYEN DANG NHAP VÀO 1 CONNECTION
+GRANT CREATE SESSION TO ADMIN1 WITH ADMIN OPTION;
+GRANT SELECT ANY DICTIONARY TO ADMIN1; 
+GRANT ALL PRIVILEGES TO ADMIN1;
+grant connect, resource, select any transaction to ADMIN1;
+---------------------------------------------------------- YEU CAU 1 2 3-------------------------------------------------------- 
+---------------------------- YEU CAU 1: XEM DS ALL USER, XEM DANH SACH CAC DOI TUONG HIEN CO TREN CSDL
+-- + XEM ALL USER -- can sua lai
+CREATE OR REPLACE PROCEDURE sp_RetrieveAll_User (
+V_CUR_RETRIEVE OUT SYS_REFCURSOR)
+AS
+BEGIN
+	OPEN V_CUR_RETRIEVE FOR
+    SELECT GRANTEE FROM DBA_COL_PRIVS WHERE OWNER = 'ADMIN1';
+END sp_RetrieveAll_User;
+/
+variable CUR_TEST REFCURSOR
+EXEC sp_RetrieveAll_User(:CUR_TEST)
+PRINT CUR_TEST;
+-- +Xem BANG MA ADMIN1 TAO
+CREATE OR REPLACE PROCEDURE sp_Retrieve_Table( V_CURSOR_RETRVTABLE OUT SYS_REFCURSOR)
+AS
+BEGIN
+	OPEN V_CURSOR_RETRVTABLE FOR
+    SELECT table_name FROM user_tables;
+END sp_Retrieve_Table;
+/
+variable CUR_TEST_TABLE REFCURSOR
+EXEC sp_Retrieve_Table(:CUR_TEST_TABLE)
+PRINT CUR_TEST_TABLE;
+-- +XEM VIEW CUA ADMIN1 TAO
+CREATE OR REPLACE PROCEDURE sp_Retrieve_VIEW( V_CURSOR_RETRV_VIEW OUT SYS_REFCURSOR)
+AS
+BEGIN
+	OPEN V_CURSOR_RETRV_VIEW FOR
+    SELECT view_name FROM user_views;
+END sp_Retrieve_VIEW;
+/
+variable CUR_TEST_view REFCURSOR
+EXEC sp_Retrieve_VIEW(:CUR_TEST_VIEW)
+PRINT CUR_TEST_VIEW;
+---------------------------- YEU CAU 2: THONG TIN VE QUYEN CUA MOI USER/ROLE TREN CAC DOI TUONG DU LIEU
+-- + XEM QUYEN CUA CAC USER TREN CAC DOI TUONG DU LIEU (DOI TUONG LA COT)
+CREATE OR REPLACE PROCEDURE sp_RetrieveColPri_User (
+V_CUR_RETRIEVE_Col OUT SYS_REFCURSOR)
+AS
+BEGIN
+	OPEN V_CUR_RETRIEVE_Col FOR
+    SELECT GRANTEE, TABLE_NAME, COLUMN_NAME, PRIVILEGE FROM DBA_COL_PRIVS WHERE OWNER = 'ADMIN1';
+END sp_RetrieveColPri_User;
+/
+variable CUR_TEST_ColPriv REFCURSOR
+EXEC sp_RetrieveColPri_User(:CUR_TEST_ColPriv)
+PRINT CUR_TEST_ColPriv;
+-- + XEM QUYEN CUA CAC USER TREN DOI TUONG DU LIEU LA BANG
+--SELECT * FROM ALL_TAB_PRIVS_MADE;
+--SELECT * FROM USER_TAB_PRIVS;
+CREATE OR REPLACE PROCEDURE sp_RetrievePri_User (
+V_CUR_RETRIEVE_Pri OUT SYS_REFCURSOR)
+AS
+BEGIN
+	OPEN V_CUR_RETRIEVE_Pri FOR
+    SELECT GRANTEE, TABLE_NAME, PRIVILEGE FROM USER_TAB_PRIVS WHERE OWNER = 'ADMIN1';
+END sp_RetrievePri_User;
+/
+variable CUR_TEST_Priv REFCURSOR
+EXEC sp_RetrievePri_User(:CUR_TEST_Priv)
+PRINT CUR_TEST_Priv;
+-------------------------- YEU CAU 3: CHO PHEP TAO MOI/XOA/SUA USER HOAC ROLE
+--+ TAO MOI USER
+ create or replace procedure sp_create_user
+    (user_name IN varchar2 , u_password IN varchar2 )
+    IS
+    tmp_query varchar(150);
+    user_name_upper varchar(30) := UPPER(user_name) ;
+  BEGIN
+    tmp_query := 'create user ' || user_name_upper || ' identified by ' || u_password;
+    EXECUTE IMMEDIATE ( tmp_query );
+    tmp_query := 'grant create session to ' || user_name_upper ;
+    EXECUTE IMMEDIATE ( tmp_query );
+   END;
+   /
+exec ADMIN1.sp_create_user('nana', 'lovely');
+exec ADMIN1.sp_create_user('SEC_MGR', 'secmgr');
+SELECT * FROM all_users;
+--+ XOA USER
+create or replace procedure sp_drop_user 
+    (user_name IN varchar2)
+    IS
+    begin
+    execute IMMEDIATE 'drop user ' || user_name || 'CASCADE';
+    end;
+/
+exec ADMIN1.sp_drop_user('nana');
+--+ ALTER USER
+--  Alter password user
+create or replace procedure sp_alterpass_user
+    (user_name IN varchar2, u_password IN varchar2)
+    AS
+    BEGIN
+    execute immediate 'alter user '||user_name||' identified by ' || u_password;
+    dbms_output.put_line('Thay doi thanh cong');
+    END;
+/
+exec ADMIN1.sp_alterpass_user('JOY', '123123');
+-- Alter lock user
+create or replace procedure sp_alterlock_user
+    (user_name IN varchar2) 
+    IS
+    BEGIN
+    execute immediate 'alter user '||user_name||' ACCOUNT lock ';
+    END;
+/
+exec sp_alterlock_user('JAKE');
+-- Alter unlock user
+create or replace procedure sp_alterUnlock_user
+    (user_name IN varchar2) 
+    IS
+    BEGIN
+    execute immediate 'alter user '||user_name||' ACCOUNT unlock ';
+    END;
+/
+exec sp_alterUnlock_user('JAKE');
+-- TAO ROLE
+--+ Create role NOT IDENTIFIED
+CREATE OR REPLACE procedure sp_CreateRole_NOTIDENTIFIED_user
+    (role_name IN varchar2)
+    IS
+    BEGIN
+    EXECUTE IMMEDIATE 'CREATE ROLE ' || role_name;
+    END;
+/
+exec sp_CreateRole_NOTIDENTIFIED_user('TiepTan_DieuPhoi');
+select * from dba_roles where role = 'TIEPTAN_DIEUPHOI';
+--+ Create role IDENTIFIED
+CREATE OR REPLACE procedure sp_CreateRole_IDENTIFIED_user
+    (role_name IN varchar2, role_password IN varchar2)
+    IS
+    BEGIN
+    EXECUTE IMMEDIATE 'CREATE ROLE ' || role_name || ' identified by ' || role_password;
+    END;
+/
+exec ADMIN1.sp_CreateRole_IDENTIFIED_user('drop_table', 'drop');
+-- Xoa role
+CREATE OR REPLACE PROCEDURE sp_DropRole_user (role_name varchar2)
+    IS
+    BEGIN
+    EXECUTE IMMEDIATE 'DROP ROLE ' || role_name ;   
+    END;
+/
+exec ADMIN1.sp_DropRole_user('VIEW_TABLE');
+SELECT * FROM DBA_ROLES ;
+-- ALTER ROLE
+-- + ENABLE ROLE
+CREATE OR REPLACE PROCEDURE sp_Enable_Role (role_name IN varchar2,check_enable IN number)
+IS
+BEGIN
+    EXECUTE IMMEDIATE ' SET ROLE ' || role_name;
+END;
+/
+-- + DISABLE ROLE
+CREATE OR REPLACE PROCEDURE sp_Disable_Role (role_name IN varchar2,check_disable IN number)
+IS
+BEGIN
+    EXECUTE IMMEDIATE ' SET ROLE ' || role_name || ' NONE ';
+END;
+/
+-- + ALTER ROLE IDENTIFIED
+CREATE OR REPLACE PROCEDURE sp_AlterRole_Identified (role_name IN varchar2, new_role_pass IN varchar2 ,check_identified IN number)
+IS
+BEGIN
+    EXECUTE IMMEDIATE ' ALTER ROLE ' || role_name || ' IDENTIFIED BY ' || new_role_pass;
+END;
+/
+-- + ALTER ROLE NOT IDENTIFIED
+CREATE OR REPLACE PROCEDURE sp_AlterRole_Identified (role_name IN varchar2,check_identified IN number)
+IS
+BEGIN
+    EXECUTE IMMEDIATE ' ALTER ROLE ' || role_name || ' IDENTIFIED BY ' || new_role_pass;
+END;
+/
+-- +ALTER ROLE
+CREATE OR REPLACE PROCEDURE sp_AlterRole (role_name IN varchar2,check_status IN number)
+    IS
+    BEGIN
+        IF (check_status = 1) THEN
+            EXECUTE IMMEDIATE ' ALTER ROLE ' || role_name || ' NOT IDENTIFIED ' ;
+        END IF;
+        IF (check_status = 2) THEN
+            EXECUTE IMMEDIATE ' ALTER ROLE ' || role_name || ' IDENTIFIED EXTERNALLY ' ;
+        END IF;
+        IF (check_status = 3) THEN
+            EXECUTE IMMEDIATE ' ALTER ROLE ' || role_name || ' IDENTIFIED GLOBALLY ' ;
+        END IF;
+    END;
+/
+----------------------------------------------- GRANT QUYEN CHO USER----------------------------------------------- 
+-- GRANT CONNECT, RESOURCE TO USER
+CREATE OR REPLACE PROCEDURE sp_Grant_User_CONNECT (user_name IN varchar2)
+AUTHID CURRENT_USER AS
+    BEGIN
+    EXECUTE IMMEDIATE 'GRANT CONNECT TO ' || user_name;
+    END;
+/
+EXEC sp_Grant_User_CONNECT('JOY');
+
+
